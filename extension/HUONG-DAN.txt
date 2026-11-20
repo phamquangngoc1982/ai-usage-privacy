@@ -1,0 +1,38 @@
+AI Usage v0.4.1 — Chrome và Microsoft Edge trên máy tính
+
+Cập nhật để giữ số liệu
+1. Giải nén và chép đè vào thư mục AI-Usage đang dùng.
+2. Mở chrome://extensions hoặc edge://extensions và bấm Tải lại / Reload trên thẻ AI Usage.
+   Nếu cài lần đầu, bật Developer mode và dùng Load unpacked để chọn thư mục AI-Usage.
+
+Sử dụng
+- Bấm Thêm dịch vụ để chọn thẻ. Bấm Kết nối hoặc ↻ trên thẻ rồi cấp quyền trang.
+- Bấm ↻ cạnh giờ cập nhật để làm mới riêng thẻ đó. Bấm × để xóa thẻ, số liệu lưu
+  trên thẻ và thu hồi quyền truy cập của tiện ích. Có thể thêm lại dịch vụ sau.
+- Grok, GitHub Copilot, Cursor, Kiro, Manus, Devin và Windsurf được đọc thử từ
+  trang tài khoản đã đăng nhập. Việc đọc phụ thuộc vào bố cục và gói dịch vụ.
+  Nếu có số credit nhưng không có tổng hạn mức, bảng chỉ hiển thị số credit.
+- Cập nhật tất cả ưu tiên đọc trực tiếp hạn mức ChatGPT/Codex và Claude qua phiên web.
+  Nếu yêu cầu trực tiếp không dùng được, tiện ích đọc giao diện Usage.
+  Gemini dùng giao diện Usage. Các dịch vụ cần đọc giao diện dùng lại tab Usage
+  phù hợp đang mở hoặc dùng chung tối đa một tab tạm. Tab tạm tự đóng khi xong.
+- Tự cập nhật chạy khoảng mỗi 15 phút khi trình duyệt còn chạy. Chế độ này thử
+  đọc trực tiếp ChatGPT/Codex và Claude, không mở tab và không tự cập nhật Gemini.
+  Bật công tắc để sử dụng. Vẫn có thể bấm Cập nhật tất cả bất kỳ lúc nào.
+- Góc phải mỗi thẻ hiện thời điểm lấy thành công gần nhất theo giờ Việt Nam.
+  Nếu lần đọc thất bại, số liệu lần trước được giữ lại.
+- Khi cần đăng nhập lại, dùng nút Đăng nhập trên thẻ tương ứng.
+
+Dữ liệu
+Tiện ích dùng phiên đăng nhập trong hồ sơ Chrome/Edge hiện tại. Với ChatGPT,
+mã xác thực phiên chỉ được dùng trong bộ nhớ để truy vấn cùng tên miền ChatGPT.
+Các yêu cầu xác thực chỉ đến dịch vụ tương ứng. Tiện ích lưu số liệu hạn mức
+trong hồ sơ trình duyệt và không đồng bộ sang thiết bị khác.
+Các điểm lấy dữ liệu trực tiếp là giao diện nội bộ, có thể đổi theo dịch vụ.
+Dùng hồ sơ Chrome/Edge riêng nếu cần theo dõi nhiều tài khoản.
+
+Nguồn biểu tượng
+ChatGPT: favicon từ https://chatgpt.com/
+Claude: biểu tượng Anthropic từ https://commons.wikimedia.org/wiki/File:Claude_AI_symbol.svg
+Gemini: biểu tượng Google từ https://commons.wikimedia.org/wiki/File:Google-gemini-icon.png
+Grok, GitHub Copilot, Cursor, Kiro, Manus, Devin và Windsurf: https://github.com/lobehub/lobe-icons

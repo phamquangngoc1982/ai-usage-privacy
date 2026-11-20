@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AI Usage",
+  "version": "0.6.0",
+  "description": "Theo dõi hạn mức các dịch vụ AI trên một bảng.",
+  "permissions": [
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "AI Usage"
+  },
+  "icons": {
+    "32": "icon.png",
+    "128": "icon.png"
+  },
+  "optional_host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://grok.com/*",
+    "https://github.com/*",
+    "https://cursor.com/*",
+    "https://app.kiro.dev/*",
+    "https://manus.im/*",
+    "https://app.devin.ai/*",
+    "https://windsurf.com/*"
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "optional_permissions": [
+    "nativeMessaging"
+  ],
+  "homepage_url": "https://phamquangngoc1982.github.io/ai-usage-privacy/privacy.html"
+}
