@@ -1,0 +1,37 @@
+name: Build Windows installer
+on:
+  workflow_dispatch:
+    inputs:
+      extension_id:
+        description: Chrome Web Store extension ID
+        required: true
+        default: daeejkhkhbecpokcmeegodkcfedhnpni
+        type: string
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        shell: pwsh
+        env:
+          EXTENSION_ID: ${{ inputs.extension_id }}
+        run: |
+          if ($env:EXTENSION_ID -cnotmatch '^[a-p]{32}$') { throw 'Invalid extension ID' }
+          New-Item -ItemType Directory build,dist -Force | Out-Null
+          $compiler = "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $compiler /nologo /target:winexe /optimize+ /codepage:65001 /out:build\AIUsageTray.exe /reference:System.Windows.Forms.dll /reference:System.Drawing.dll /reference:System.Web.Extensions.dll installer\Tray.cs
+          if ($LASTEXITCODE -ne 0) { throw 'C# build failed' }
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          & $iscc "/DExtensionId=$env:EXTENSION_ID" installer\setup.iss
+          if ($LASTEXITCODE -ne 0) { throw 'Setup build failed' }
+          Compress-Archive -Path extension\* -DestinationPath dist\AI-Usage-0.6.0-Chrome.zip
+          $hash = (Get-FileHash dist\AI-Usage-Tray-Setup.exe -Algorithm SHA256).Hash.ToLower()
+          "$hash  AI-Usage-Tray-Setup.exe" | Set-Content dist\SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AI-Usage-0.6.0
+          path: dist/*
+          if-no-files-found: error
